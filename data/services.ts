@@ -1,0 +1,69 @@
+import type { Service } from "@/types/domain";
+
+export const services: Service[] = [
+  {
+    slug: "interior",
+    title: "Interior Painting",
+    summary:
+      "Walls, ceilings, doors and trim. We prepare the surface properly before the first coat.",
+    startingPrice: { amount: 18, unit: "sqft" },
+    icon: "paint-roller",
+    features: ["Putty + primer", "Two-coat finish", "Furniture covered", "1-year warranty"],
+    cover: {
+      src: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1200&q=80",
+      alt: "Interior wall freshly painted in sage",
+    },
+  },
+  {
+    slug: "exterior",
+    title: "Exterior Painting",
+    summary:
+      "Monsoon-ready paint for building fronts, balconies and compound walls. Scaffolding included.",
+    startingPrice: { amount: 24, unit: "sqft" },
+    icon: "brush",
+    features: ["Pressure wash", "Anti-fungal primer", "10-year weather coat", "Scaffolding incl."],
+    cover: {
+      src: "https://images.unsplash.com/photo-1564540586988-aa4e53c3d799?auto=format&fit=crop&w=1200&q=80",
+      alt: "House exterior freshly repainted",
+    },
+  },
+  {
+    slug: "commercial",
+    title: "Shops & Offices",
+    summary:
+      "After-hours painting for shops, offices and restaurants in Daman, Vapi and Silvassa.",
+    startingPrice: { amount: 22, unit: "sqft" },
+    icon: "building",
+    features: ["Night / weekend work", "Fast turnaround", "No business downtime", "GST invoice"],
+    cover: {
+      src: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+      alt: "Bright modern office interior",
+    },
+  },
+  {
+    slug: "textures",
+    title: "Textures & Finishes",
+    summary:
+      "Lime wash, Roman clay, stucco and metallic finishes. Hand-applied by our trained crew.",
+    startingPrice: { amount: 85, unit: "sqft" },
+    icon: "sparkles",
+    features: ["Lime wash", "Roman clay", "Metallic finish", "Sample swatches"],
+    cover: {
+      src: "https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=1200&q=80",
+      alt: "Textured wall with soft shadow",
+    },
+  },
+  {
+    slug: "waterproofing",
+    title: "Waterproofing",
+    summary:
+      "Terrace, bathroom and exterior wall sealing. We find the leak first, then fix it.",
+    startingPrice: { amount: 35, unit: "sqft" },
+    icon: "droplets",
+    features: ["Leak check", "Elastomeric coating", "5-year warranty", "Done before monsoon"],
+    cover: {
+      src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+      alt: "Waterproofed terrace with clean finish",
+    },
+  },
+];

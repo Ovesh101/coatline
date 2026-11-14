@@ -1,26 +1,142 @@
 @import "tailwindcss";
 
+@theme {
+  /* Palette — Coatline (Lifestyle Modern) */
+  --color-frame: #4A523A;
+  --color-bg: #F2EEE6;
+  --color-surface: #FFFFFF;
+  --color-ink: #0E1A2B;
+  --color-ink-muted: #0E1A2B99;
+  --color-cta: #4FB69A;
+  --color-cta-hover: #3EA084;
+  --color-sand: #C8B897;
+  --color-line: #E8E1D3;
+
+  /* Typography */
+  --font-display: var(--font-display), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-body: var(--font-body), ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+
+  /* Layout */
+  --container-max: 1280px;
+  --text-max: 68ch;
+
+  /* Motion */
+  --ease-brand: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --section-pad-y: clamp(72px, 9vw, 140px);
+  --section-pad-y-sm: 72px;
+  --section-pad-y-lg: 96px;
+  --frame-thickness: 0px;
+  --container-px: 20px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@media (min-width: 768px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --frame-thickness: clamp(16px, 2vw, 28px);
+    --container-px: 40px;
   }
 }
 
+html {
+  background: var(--color-frame);
+  color: var(--color-ink);
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+p {
+  text-wrap: pretty;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.painted-noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Page hero top padding — reserves room for the fixed/sticky nav */
+.page-top {
+  padding-top: 24px;
+}
+@media (min-width: 768px) {
+  .page-top {
+    padding-top: 40px;
+  }
+}
+
+/* Site shell — edge-to-edge on mobile, framed on desktop */
+.site-shell {
+  padding: 0;
+}
+.site-canvas {
+  min-height: 100dvh;
+  border-radius: 0;
+}
+
+@media (min-width: 768px) {
+  .site-shell {
+    padding: var(--frame-thickness);
+  }
+  .site-canvas {
+    min-height: calc(100dvh - 2 * var(--frame-thickness));
+    border-radius: var(--radius-md);
+  }
+}
+
+/* Selection */
+::selection {
+  background: var(--color-cta);
+  color: var(--color-bg);
+}
+
+@keyframes acc-down {
+  from { height: 0; opacity: 0; }
+  to   { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+@keyframes acc-up {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to   { height: 0; opacity: 0; }
 }
