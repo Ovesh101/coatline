@@ -15,7 +15,7 @@ export function WhatsappFab() {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 1.2, duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
-      className="group fixed bottom-6 right-6 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-110 md:bottom-8 md:right-8"
+      className="group fixed bottom-8 right-8 z-50 hidden h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-110 md:inline-flex"
     >
       <span
         aria-hidden

@@ -22,9 +22,9 @@ export function ServicesList() {
                 key={s.slug}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
+                viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.7, ease }}
-                className="group grid grid-cols-1 overflow-hidden rounded-3xl border border-[var(--color-line)] bg-[var(--color-surface)] shadow-sm transition-shadow hover:shadow-md md:grid-cols-12"
+                className="group grid transform-gpu grid-cols-1 overflow-hidden rounded-3xl border border-[var(--color-line)] bg-[var(--color-surface)] shadow-sm transition duration-500 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:border-[var(--color-cta)]/50 hover:shadow-[0_24px_48px_-20px_rgba(14,26,43,0.22)] md:grid-cols-12"
               >
                 <div
                   className={`relative aspect-[5/4] overflow-hidden md:aspect-auto md:col-span-5 ${
@@ -35,7 +35,7 @@ export function ServicesList() {
                     src={s.cover.src}
                     alt={s.cover.alt}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    className="transform-gpu object-cover transition duration-700 ease-out group-hover:scale-[1.05]"
                     sizes="(min-width:768px) 42vw, 100vw"
                   />
                   <div className="absolute left-5 top-5 inline-flex h-11 items-center gap-2 rounded-full bg-[var(--color-bg)]/95 px-4 backdrop-blur">
@@ -46,16 +46,14 @@ export function ServicesList() {
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-5 p-8 md:col-span-7 md:p-14">
-                  <div className="flex items-start justify-between gap-4">
-                    <h2 className="font-display text-3xl font-semibold text-[var(--color-ink)] md:text-5xl md:leading-[1.02]">
+                <div className="flex flex-col gap-5 p-6 md:col-span-7 md:p-14">
+                  <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                    <h2 className="min-w-0 font-display text-[28px] font-semibold leading-tight text-[var(--color-ink)] sm:text-3xl md:text-5xl md:leading-[1.02]">
                       {s.title}
                     </h2>
-                    {s.startingPrice && (
-                      <span className="inline-flex flex-none items-center rounded-full bg-[var(--color-sand)]/50 px-4 py-1.5 text-sm font-medium text-[var(--color-ink)]">
-                        from ₹{s.startingPrice.amount}/{s.startingPrice.unit}
-                      </span>
-                    )}
+                    <span className="inline-flex flex-none items-center whitespace-nowrap rounded-full bg-[var(--color-sand)]/50 px-3 py-1 text-[13px] font-medium text-[var(--color-ink)] sm:px-4 sm:py-1.5 sm:text-sm">
+                      Free written quote
+                    </span>
                   </div>
                   <p className="max-w-xl text-[17px] leading-relaxed text-[var(--color-ink)]/75">
                     {s.summary}

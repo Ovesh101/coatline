@@ -35,9 +35,9 @@ export function Values() {
                 key={v.title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: i * 0.08, ease }}
-                className="group relative overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] p-8 transition-all hover:-translate-y-1 hover:border-[var(--color-cta)] hover:shadow-md"
+                className="group relative transform-gpu overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] p-8 transition duration-500 ease-out hover:-translate-y-1.5 hover:scale-[1.015] hover:border-[var(--color-cta)] hover:shadow-[0_20px_40px_-18px_rgba(14,26,43,0.2)]"
               >
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-cta)]/12 text-[var(--color-cta)]">
                   <Icon className="h-5 w-5" />

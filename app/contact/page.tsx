@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Phone, MessageCircle, Mail, Clock, MapPin } from "lucide-react";
 import { Container, Eyebrow } from "@/components/ui/section";
-import { QuoteForm } from "@/features/contact";
+import { QuoteForm, VisitUs } from "@/features/contact";
 import { Faq } from "@/features/faq";
 import { site } from "@/data/site";
 
@@ -93,6 +93,7 @@ export default function ContactPage() {
         </Container>
       </section>
 
+      <VisitUs />
       <Faq />
     </>
   );

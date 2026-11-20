@@ -14,7 +14,7 @@ export function Hero() {
   return (
     <section className="relative isolate overflow-hidden">
       <div
-        className="mx-auto grid grid-cols-1 items-stretch gap-10 px-5 pt-6 pb-24 md:min-h-[86dvh] md:grid-cols-12 md:gap-16 md:px-10 md:pt-20 md:pb-32"
+        className="mx-auto grid grid-cols-1 items-stretch gap-10 px-5 pt-6 pb-24 md:min-h-[82dvh] md:grid-cols-12 md:gap-16 md:px-10 md:pt-12 md:pb-32"
         style={{ maxWidth: "var(--container-max)" }}
       >
         {/* LEFT */}
@@ -25,7 +25,7 @@ export function Hero() {
             transition={{ duration: 0.8, ease, delay: 0.1 }}
             className="text-balance font-display font-bold tracking-[-0.03em] text-[var(--color-ink)]"
             style={{
-              fontSize: "clamp(44px, 9.5vw, 120px)",
+              fontSize: "clamp(40px, 8.5vw, 120px)",
               lineHeight: 0.98,
             }}
           >
@@ -67,18 +67,27 @@ export function Hero() {
             </Button>
           </motion.div>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease, delay: 1 }}
-            className="mt-10 flex items-center gap-3 text-[13px] text-[var(--color-ink)]/60"
+            className="mt-10 flex items-start gap-3 text-[13px] leading-snug text-[var(--color-ink)]/60"
           >
             <span
-              className="inline-block h-2 w-2 rounded-full bg-[var(--color-cta)]"
+              className="relative mt-1 inline-flex h-2 w-2 flex-none items-center justify-center"
               aria-hidden
-            />
-            Daman · Painting contractor since 1995
-          </motion.p>
+            >
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-cta)] opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-cta)]" />
+            </span>
+            <span className="flex flex-col gap-0.5 sm:flex-row sm:gap-2">
+              <span>Painting contractor since 1995</span>
+              <span className="hidden sm:inline" aria-hidden>
+                ·
+              </span>
+              <span>Serving Daman, Vapi &amp; Silvassa</span>
+            </span>
+          </motion.div>
         </div>
 
         {/* RIGHT */}

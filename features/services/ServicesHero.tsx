@@ -40,9 +40,9 @@ export function ServicesHero() {
               transition={{ duration: 0.6, ease, delay: 0.25 }}
               className="mt-8 max-w-xl text-lg leading-relaxed text-[var(--color-ink)]/75"
             >
-              Our own crew. Our own tools. One supervisor on your project from start to finish.
-              Starting prices below are typical for Daman — the final number is on your written
-              quote, and that&apos;s always free.
+              Our own crew. Our own tools. One supervisor on your project from start to
+              finish. Every job gets a written quote with the final number — and that
+              quote is always free.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}

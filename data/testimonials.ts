@@ -1,27 +1,36 @@
 import type { Testimonial } from "@/types/domain";
 
+/**
+ * Placeholder testimonials — anonymised by locality until real client reviews
+ * are collected.
+ *
+ * TODO (when Akil has 5–10 happy clients willing to be named):
+ *   1. Ask permission to use their first name + last initial.
+ *   2. Add `source: "google"` + `sourceUrl` once Google Business Profile is live.
+ *   3. Optionally add `avatar: "/testimonials/{id}.jpg"` at 160×160 round.
+ */
 export const testimonials: Testimonial[] = [
   {
     id: "t1",
-    name: "Priya S.",
+    name: "Homeowner",
     location: "Nani Daman",
     rating: 5,
-    source: "google",
+    source: "direct",
     quote:
-      "Akil bhai has painted our home three times over fifteen years. Always on time, always clean, never a surprise on the bill. The only contractor we trust.",
+      "Akil bhai has painted our home three times over the years. Always on time, always clean, never a surprise on the bill. The only contractor we trust.",
   },
   {
     id: "t2",
-    name: "Rohit M.",
+    name: "Homeowner",
     location: "Moti Daman",
     rating: 5,
-    source: "google",
+    source: "direct",
     quote:
       "The crew covered every piece of furniture before starting. By the time they finished, the home looked brand new and spotless.",
   },
   {
     id: "t3",
-    name: "Aisha K.",
+    name: "Office client",
     location: "Vapi",
     rating: 5,
     source: "direct",
@@ -30,11 +39,11 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: "t4",
-    name: "Vikram R.",
+    name: "Office client",
     location: "Silvassa",
     rating: 5,
-    source: "google",
+    source: "direct",
     quote:
-      "Very professional team. They painted during our office hours without disturbing work. Walls still look amazing six months later.",
+      "Very professional team. They painted after our office hours without disturbing work. Walls still look spotless months later.",
   },
 ];

@@ -1,8 +1,20 @@
 import type { SiteConfig } from "@/types/domain";
 
+// Google Maps — Nani Daman, Daman and Diu, India.
+// Replace with the exact pin for Coatline's office/workshop when available.
+const DAMAN_GEO = { lat: 20.4166, lng: 72.835 } as const;
+
 export const site: SiteConfig = {
   name: "Coatline",
   founder: "Akil Mulla",
+  // TODO: When a real portrait is ready, drop it at /public/akil-mulla.jpg
+  // (800×1000, warm natural light, head-and-shoulders) and change src to
+  // "/akil-mulla.jpg". Until then we render a brand-coloured monogram.
+  founderPhoto: {
+    src: "",
+    alt: "Akil Mulla, founder of Coatline — painting contractor in Daman since 1995",
+  },
+  founderYears: 30,
   tagline: "A fresh coat. A whole new feeling.",
   description:
     "Painting contractor in Daman since 1995. Run by Akil Mulla and a trained crew. Homes, shops and offices across Daman, Vapi and Silvassa.",
@@ -19,8 +31,13 @@ export const site: SiteConfig = {
     postal: "396210",
     country: "IN",
   },
+  geo: DAMAN_GEO,
+  mapEmbedSrc: `https://www.google.com/maps?q=${DAMAN_GEO.lat},${DAMAN_GEO.lng}&z=14&output=embed`,
+  mapDirectionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${DAMAN_GEO.lat},${DAMAN_GEO.lng}`,
+  // Akil works contractor hours — early starts, late finishes, flexible for
+  // clients. Avoid fixed opening times so we never turn away an early/late call.
   hours: [
-    { label: "Mon – Sat", value: "9:00 am – 7:00 pm" },
+    { label: "Mon – Sat", value: "Call anytime" },
     { label: "Sunday", value: "On call" },
   ],
   serviceAreas: [
@@ -33,10 +50,8 @@ export const site: SiteConfig = {
     "Silvassa",
     "Sarigam",
   ],
-  social: [
-    { label: "Instagram", href: "https://instagram.com/" },
-    { label: "Google Business", href: "https://g.co/" },
-  ],
+  // No social profiles yet — business runs on word-of-mouth. Add later when active.
+  social: [],
   stats: [
     { label: "Years in business", value: 30, suffix: "+" },
     { label: "Homes & offices done", value: 500, suffix: "+" },

@@ -30,13 +30,13 @@ export function Select({
         <RadixSelect.Trigger
           aria-label={ariaLabel ?? name}
           className={cn(
-            "flex w-full items-center justify-between rounded-lg border border-[var(--color-line)] bg-white px-4 py-3 text-left text-[var(--color-ink)] outline-none transition-all",
+            "flex h-[50px] w-full items-center justify-between gap-2 rounded-lg border border-[var(--color-line)] bg-white px-4 text-left text-[15px] text-[var(--color-ink)] outline-none transition-all",
             "focus:border-[var(--color-cta)] focus:ring-2 focus:ring-[var(--color-cta)]/20",
             "data-[state=open]:border-[var(--color-cta)] data-[state=open]:ring-2 data-[state=open]:ring-[var(--color-cta)]/20",
           )}
         >
           <RadixSelect.Value placeholder={placeholder} />
-          <RadixSelect.Icon className="text-[var(--color-ink)]/50">
+          <RadixSelect.Icon className="flex-none text-[var(--color-ink)]/50">
             <ChevronDown className="h-4 w-4 transition-transform data-[state=open]:rotate-180" />
           </RadixSelect.Icon>
         </RadixSelect.Trigger>

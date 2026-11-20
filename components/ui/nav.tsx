@@ -13,7 +13,9 @@ import { cn } from "@/lib/utils/cn";
 import { ease } from "@/lib/motion";
 
 function isActive(pathname: string, href: string) {
-  if (href.startsWith("/#")) return pathname === "/";
+  // In-page anchor links (e.g. "/#work") never light up — they're scroll
+  // targets, not routes. Otherwise the Home route would also mark #work active.
+  if (href.includes("#")) return false;
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(href + "/");
 }
@@ -42,25 +44,19 @@ export function Nav() {
   return (
     <>
       {/* ───────── DESKTOP NAV ───────── */}
-      <header
-        className={cn(
-          "sticky top-0 z-40 hidden transition-colors duration-300 md:block",
-          scrolled
-            ? "bg-[var(--color-bg)]/85 backdrop-blur-md border-b border-[var(--color-line)]"
-            : "bg-transparent",
-        )}
-      >
+      {/* Non-sticky: scrolls away with the page. Back-to-top FAB handles returning up. */}
+      <header className="relative z-40 hidden w-full md:block">
         <div
-          className="mx-auto flex h-[72px] items-center justify-between px-10"
+          className="mx-auto flex h-[72px] w-full items-center justify-between px-10"
           style={{ maxWidth: "var(--container-max)" }}
         >
           <Link
             href="/"
-            className="font-display text-xl font-bold tracking-tight text-[var(--color-ink)]"
+            className="font-display text-xl font-bold tracking-tight text-[var(--color-ink)] transition-opacity hover:opacity-80"
           >
             {site.name}
           </Link>
-          <nav className="flex items-center gap-10">
+          <nav className="flex items-center gap-9">
             {links.map((l) => {
               const active = isActive(pathname, l.href);
               return (
@@ -72,13 +68,13 @@ export function Nav() {
                     "group relative text-[12px] font-semibold uppercase tracking-[0.18em] transition-colors",
                     active
                       ? "text-[var(--color-ink)]"
-                      : "text-[var(--color-ink)]/60 hover:text-[var(--color-ink)]",
+                      : "text-[var(--color-ink)]/55 hover:text-[var(--color-ink)]",
                   )}
                 >
                   {l.label}
                   <span
                     className={cn(
-                      "absolute -bottom-1 left-0 h-[2px] rounded-full bg-[var(--color-cta)] transition-all duration-300",
+                      "absolute -bottom-1.5 left-0 h-[2px] rounded-full bg-[var(--color-cta)] transition-all duration-300",
                       active ? "w-full" : "w-0 group-hover:w-full",
                     )}
                   />
@@ -86,7 +82,7 @@ export function Nav() {
               );
             })}
           </nav>
-          <Button asChild size="sm" variant="primary">
+          <Button asChild size="sm" variant="primary" className="h-10 rounded-xl px-5">
             <Link href="/contact">Get a quote</Link>
           </Button>
         </div>

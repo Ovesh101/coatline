@@ -76,20 +76,40 @@ export function AboutHero() {
             className="md:col-span-5"
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-sm">
-              <Image
-                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=85"
-                alt="Painter at work on a modern wall"
-                fill
-                priority
-                className="object-cover"
-                sizes="(min-width:768px) 40vw, 100vw"
-              />
+              {site.founderPhoto.src ? (
+                <>
+                  <Image
+                    src={site.founderPhoto.src}
+                    alt={site.founderPhoto.alt}
+                    fill
+                    priority
+                    className="object-cover"
+                    sizes="(min-width:768px) 40vw, 100vw"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 via-black/15 to-transparent"
+                  />
+                </>
+              ) : (
+                // Placeholder — a warm painted-wall gradient until a real
+                // portrait of Akil is available. Avoids showing a stranger's
+                // face while keeping the visual weight on the page.
+                <div
+                  aria-hidden
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "radial-gradient(120% 90% at 20% 15%, var(--color-sand) 0%, transparent 55%), linear-gradient(135deg, var(--color-frame) 0%, var(--color-ink) 100%)",
+                  }}
+                />
+              )}
               <div className="absolute bottom-5 left-5 right-5 rounded-xl bg-[var(--color-bg)]/95 p-4 backdrop-blur">
                 <p className="font-display text-sm font-semibold text-[var(--color-ink)]">
-                  Family-run contractor since 1995
+                  {site.founder} · Founder
                 </p>
                 <p className="mt-0.5 text-xs text-[var(--color-ink)]/70">
-                  Nani Daman · Crew of 8 · Daman, Vapi & Silvassa
+                  {site.founderYears} years of painting · Nani Daman · Still on-site every day
                 </p>
               </div>
             </div>

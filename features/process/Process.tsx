@@ -114,7 +114,7 @@ function ProcessStepCard({
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-15%" }}
+      viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, delay: index * 0.08, ease }}
       className="relative"
     >
@@ -140,7 +140,7 @@ function MobileProcessStep({ step, index }: { step: ProcessStep; index: number }
     <motion.li
       initial={{ opacity: 0, x: -12 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
+      viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.55, delay: 0.15 + index * 0.08, ease }}
       className="relative flex gap-5 pb-8 last:pb-0"
     >

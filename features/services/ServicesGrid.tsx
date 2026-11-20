@@ -24,8 +24,8 @@ export function ServicesGrid() {
             </h2>
           </div>
           <p className="max-w-sm text-[var(--color-ink)]/70">
-            Homes, shops, offices, and specialty finishes. The prices below are a starting
-            point for Daman — your written quote with the final number is free.
+            Homes, shops, offices, and specialty finishes. Every job gets a free written
+            quote — no guesswork, no surprises.
           </p>
         </div>
 
@@ -39,11 +39,11 @@ export function ServicesGrid() {
             href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent("Hi! I have a specific requirement I'd like to discuss.")}`}
             target="_blank"
             rel="noopener"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: 0.6, delay: services.length * 0.07, ease }}
-            className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-dashed border-[var(--color-ink)]/15 bg-[var(--color-sand)]/25 p-8 transition-all hover:-translate-y-1 hover:border-[var(--color-cta)] hover:bg-[var(--color-cta)]/8 hover:shadow-lg"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.55, delay: Math.min(services.length, 3) * 0.06, ease }}
+            className="group relative flex h-full transform-gpu flex-col justify-between overflow-hidden rounded-2xl border border-dashed border-[var(--color-ink)]/15 bg-[var(--color-sand)]/25 p-8 transition duration-500 ease-out hover:-translate-y-1.5 hover:scale-[1.015] hover:border-[var(--color-cta)] hover:bg-[var(--color-cta)]/8 hover:shadow-[0_24px_48px_-20px_rgba(14,26,43,0.22)]"
           >
             <div>
               <div className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-cta)] text-white shadow-sm">

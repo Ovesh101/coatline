@@ -6,8 +6,9 @@ import { Nav } from "@/components/ui/nav";
 import { Footer } from "@/components/ui/footer";
 import { WhatsappFab } from "@/features/whatsapp";
 import { JsonLd } from "@/lib/seo/jsonld";
-import { LenisProvider } from "@/components/ui/lenis-provider";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { BackToTop } from "@/components/ui/back-to-top";
+import { MobileCtaBar } from "@/components/ui/mobile-cta-bar";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -81,22 +82,22 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body suppressHydrationWarning>
         <JsonLd />
         <ScrollProgress />
-        <LenisProvider>
+        <div
+          className="site-shell min-h-dvh"
+          style={{ background: "var(--color-frame)" }}
+        >
           <div
-            className="site-shell min-h-dvh"
-            style={{ background: "var(--color-frame)" }}
+            className="site-canvas relative overflow-hidden"
+            style={{ background: "var(--color-bg)" }}
           >
-            <div
-              className="site-canvas relative overflow-hidden"
-              style={{ background: "var(--color-bg)" }}
-            >
-              <Nav />
-              <main>{children}</main>
-              <Footer />
-            </div>
+            <Nav />
+            <main>{children}</main>
+            <Footer />
           </div>
-          <WhatsappFab />
-        </LenisProvider>
+        </div>
+        <WhatsappFab />
+        <MobileCtaBar />
+        <BackToTop />
       </body>
     </html>
   );

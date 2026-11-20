@@ -6,6 +6,8 @@ const PAGES = [
   { path: "/about", name: "about" },
   { path: "/services", name: "services" },
   { path: "/contact", name: "contact" },
+  { path: "/work", name: "work-index" },
+  { path: "/work/nani-daman-duplex-2024", name: "work-detail" },
 ];
 
 const browser = await chromium.launch();

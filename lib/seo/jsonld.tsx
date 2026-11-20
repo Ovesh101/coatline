@@ -45,17 +45,33 @@ export function JsonLd() {
       postalCode: site.address.postal,
       addressCountry: site.address.country,
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: site.geo.lat,
+      longitude: site.geo.lng,
+    },
+    hasMap: site.mapDirectionsUrl,
     areaServed: site.serviceAreas.map((a) => ({ "@type": "Place", name: a })),
+    // Akil takes calls anytime — the business doesn't observe fixed opening hours.
+    // Use schema.org's "00:00 – 23:59" convention to signal "available all day".
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "09:00",
-        closes: "19:00",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+        opens: "00:00",
+        closes: "23:59",
       },
     ],
     priceRange: "₹₹",
-    sameAs: site.social.map((s) => s.href),
+    ...(site.social.length > 0 && { sameAs: site.social.map((s) => s.href) }),
   };
 
   const serviceList = services.map((s) => ({

@@ -1,12 +1,17 @@
 import type { Service } from "@/types/domain";
 
+/**
+ * Starting prices are intentionally omitted — pricing varies by site condition,
+ * paint grade and access. Every quote is bespoke. If you ever want to show a
+ * starting price again, set `startingPrice: { amount, unit }` on a service.
+ */
+
 export const services: Service[] = [
   {
     slug: "interior",
     title: "Interior Painting",
     summary:
       "Walls, ceilings, doors and trim. We prepare the surface properly before the first coat.",
-    startingPrice: { amount: 18, unit: "sqft" },
     icon: "paint-roller",
     features: ["Putty + primer", "Two-coat finish", "Furniture covered", "1-year warranty"],
     cover: {
@@ -19,7 +24,6 @@ export const services: Service[] = [
     title: "Exterior Painting",
     summary:
       "Monsoon-ready paint for building fronts, balconies and compound walls. Scaffolding included.",
-    startingPrice: { amount: 24, unit: "sqft" },
     icon: "brush",
     features: ["Pressure wash", "Anti-fungal primer", "10-year weather coat", "Scaffolding incl."],
     cover: {
@@ -32,9 +36,8 @@ export const services: Service[] = [
     title: "Shops & Offices",
     summary:
       "After-hours painting for shops, offices and restaurants in Daman, Vapi and Silvassa.",
-    startingPrice: { amount: 22, unit: "sqft" },
     icon: "building",
-    features: ["Night / weekend work", "Fast turnaround", "No business downtime", "GST invoice"],
+    features: ["Night / weekend work", "Fast turnaround", "No business downtime", "Written quote"],
     cover: {
       src: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
       alt: "Bright modern office interior",
@@ -45,7 +48,6 @@ export const services: Service[] = [
     title: "Textures & Finishes",
     summary:
       "Lime wash, Roman clay, stucco and metallic finishes. Hand-applied by our trained crew.",
-    startingPrice: { amount: 85, unit: "sqft" },
     icon: "sparkles",
     features: ["Lime wash", "Roman clay", "Metallic finish", "Sample swatches"],
     cover: {
@@ -58,7 +60,6 @@ export const services: Service[] = [
     title: "Waterproofing",
     summary:
       "Terrace, bathroom and exterior wall sealing. We find the leak first, then fix it.",
-    startingPrice: { amount: 35, unit: "sqft" },
     icon: "droplets",
     features: ["Leak check", "Elastomeric coating", "5-year warranty", "Done before monsoon"],
     cover: {

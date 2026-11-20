@@ -30,7 +30,7 @@ export function Timeline() {
               key={m.year}
               initial={{ opacity: 0, x: -16 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.55, delay: i * 0.08, ease }}
               className="relative flex gap-6 pb-10 pl-10 md:pl-[160px]"
             >

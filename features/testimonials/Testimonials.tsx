@@ -14,15 +14,22 @@ export function Testimonials() {
     [Autoplay({ delay: 5500, stopOnInteraction: false })],
   );
   const [selected, setSelected] = useState(0);
-  const count = testimonials.length;
+  // Snap count comes from Embla, not testimonials.length — on desktop multiple
+  // cards fit per view so Embla reports fewer snaps than items.
+  const [snapCount, setSnapCount] = useState(testimonials.length);
 
   useEffect(() => {
     if (!embla) return;
-    const onSelect = () => setSelected(embla.selectedScrollSnap());
-    embla.on("select", onSelect);
-    onSelect();
+    const sync = () => {
+      setSelected(embla.selectedScrollSnap());
+      setSnapCount(embla.scrollSnapList().length);
+    };
+    embla.on("select", sync);
+    embla.on("reInit", sync);
+    sync();
     return () => {
-      embla.off("select", onSelect);
+      embla.off("select", sync);
+      embla.off("reInit", sync);
     };
   }, [embla]);
 
@@ -38,8 +45,12 @@ export function Testimonials() {
               className="mt-3 font-display font-bold tracking-tight text-[var(--color-ink)]"
               style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
             >
-              Fifteen years of repeat clients.
+              Three decades of repeat clients.
             </h2>
+            <p className="mt-4 text-[var(--color-ink)]/70">
+              A few of the kind words clients have shared over the years. Names kept
+              private — we&apos;ll list verified reviews as they come in.
+            </p>
           </div>
           <div className="hidden gap-2 md:flex">
             <Button
@@ -80,16 +91,11 @@ export function Testimonials() {
                 <p className="text-[17px] leading-relaxed text-[var(--color-ink)]/85">
                   “{t.quote}”
                 </p>
-                <div className="mt-auto flex items-center justify-between">
-                  <div>
-                    <p className="font-display font-semibold text-[var(--color-ink)]">{t.name}</p>
-                    {t.location && (
-                      <p className="text-xs text-[var(--color-ink)]/60">{t.location}</p>
-                    )}
-                  </div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[var(--color-ink)]/40">
-                    via {t.source}
-                  </p>
+                <div className="mt-auto">
+                  <p className="font-display font-semibold text-[var(--color-ink)]">{t.name}</p>
+                  {t.location && (
+                    <p className="text-xs text-[var(--color-ink)]/60">{t.location}</p>
+                  )}
                 </div>
               </article>
             ))}
@@ -97,7 +103,7 @@ export function Testimonials() {
         </div>
 
         <div className="mt-8 flex justify-center gap-2">
-          {Array.from({ length: count }).map((_, i) => (
+          {Array.from({ length: snapCount }).map((_, i) => (
             <button
               key={i}
               type="button"

@@ -1,3 +1,4 @@
 export { ContactBand } from "./ContactBand";
 export { QuoteForm } from "./QuoteForm";
-export { quoteSchema, type QuoteInput, type QuoteParsed } from "./schema";
+export { VisitUs } from "./VisitUs";
+export { quoteSchema, type QuoteParsed } from "./schema";
