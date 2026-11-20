@@ -61,7 +61,7 @@ export const projects: Project[] = [
     ],
     testimonial: {
       quote:
-        "The crew covered every piece of furniture before starting. By the time they finished, the home looked brand new and spotless. Akil came personally twice to check the work.",
+        "The crew covered every piece of furniture before starting. By the time they finished, the home looked brand new and spotless. Akil visited three times during the job to check everything himself.",
       author: "Rohit M., Nani Daman",
     },
   },

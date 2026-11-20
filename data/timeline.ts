@@ -23,7 +23,7 @@ export const milestones: Milestone[] = [
   },
   {
     year: "2024",
-    title: "Son joins full-time",
-    body: "Second generation comes into the business. Same crew, same hands. Just a website and WhatsApp now. 500+ projects done.",
+    title: "Online, finally",
+    body: "500+ projects done. Clients can now find us on WhatsApp and the web — but the crew, the standard, and the person who visits your site haven't changed.",
   },
 ];

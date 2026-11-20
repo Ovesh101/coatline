@@ -22,9 +22,9 @@ export function AboutHero() {
               className="mt-4 text-balance font-display font-bold tracking-tight text-[var(--color-ink)]"
               style={{ fontSize: "clamp(44px, 7vw, 96px)", lineHeight: 0.95 }}
             >
-              Painted by hand, for{" "}
+              One contractor.{" "}
               <span className="relative inline-block whitespace-nowrap">
-                thirty years.
+                Thirty years.
                 <motion.span
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
@@ -41,8 +41,9 @@ export function AboutHero() {
               className="mt-8 max-w-xl text-lg leading-relaxed text-[var(--color-ink)]/80"
             >
               Akil Mulla started Coatline in 1995 in Nani Daman with three painters. Thirty
-              years on, he still runs the business. Same hands-on approach, bigger crew, more
-              than 500 homes and offices done.
+              years on, he still runs the business — meeting every client, quoting every job
+              and checking every project in person. The crew has grown. The standard
+              hasn&apos;t.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -50,9 +51,9 @@ export function AboutHero() {
               transition={{ duration: 0.6, ease, delay: 0.35 }}
               className="mt-5 max-w-xl text-[15px] leading-relaxed text-[var(--color-ink)]/70"
             >
-              We don&apos;t sub-contract. Our own crew does the work. One supervisor stays with
-              you from the first visit till the last wall is checked. That&apos;s the simple
-              promise.
+              We don&apos;t sub-contract. Our own trained crew does the painting. Akil visits
+              your site at the start, mid-way and at handover — so the person who quoted
+              the job is the person who signs it off. That&apos;s the simple promise.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -109,7 +110,7 @@ export function AboutHero() {
                   {site.founder} · Founder
                 </p>
                 <p className="mt-0.5 text-xs text-[var(--color-ink)]/70">
-                  {site.founderYears} years of painting · Nani Daman · Still on-site every day
+                  {site.founderYears} years in painting · Nani Daman · Visits every project
                 </p>
               </div>
             </div>
